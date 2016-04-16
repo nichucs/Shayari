@@ -1,9 +1,16 @@
 apply plugin: 'com.android.application'
 
 android {
+    signingConfigs {
+        release {
+            keyAlias 'shayari'
+            keyPassword 'nichu5463'
+            storeFile file('/home/nizamcs/Signs/shayari.jks')
+            storePassword 'nichu5463'
+        }
+    }
     compileSdkVersion 23
     buildToolsVersion "23.0.2"
-
     def getVersionCode = {
         try {
             def stdout = new ByteArrayOutputStream()
@@ -17,7 +24,6 @@ android {
             return 10;
         }
     }
-
     def getVersionName = {
         try {
             def stdout = new ByteArrayOutputStream()
@@ -31,7 +37,6 @@ android {
             return '0.0.1';
         }
     }
-
     defaultConfig {
         applicationId "cs.nizam.shayari"
         minSdkVersion 10
@@ -47,7 +52,19 @@ android {
             minifyEnabled true
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
             buildConfigField("String", "AD_UNIT_ID", "\"ca-app-pub-6021641109787388/7757494152\"")
+            signingConfig signingConfigs.release
         }
+    }
+    sourceSets {
+        debug {
+            res.srcDir("debug/res")
+        }
+        release {
+            res.srcDir("release/res")
+        }
+    }
+    lintOptions {
+        disable 'InvalidPackage'
     }
 }
 
@@ -57,4 +74,7 @@ dependencies {
     compile 'com.android.support:appcompat-v7:23.1.1'
     compile 'com.google.android.gms:play-services-ads:8.4.0'
     compile 'com.google.android.gms:play-services-analytics:8.4.0'
+    compile 'com.google.android.gms:play-services-gcm:8.4.0'
+    compile 'com.firebase:firebase-client-android:2.5.2'
+    compile 'com.jakewharton:butterknife:7.0.1'
 }
