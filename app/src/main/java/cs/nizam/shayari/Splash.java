@@ -81,30 +81,4 @@ public class Splash extends AppCompatActivity {
         }
 
     }
-
-    @OnClick(R.id.btn_upload)
-    public void uploadToFirebase(){
-        DatabaseReference  myFirebaseRef = FirebaseDatabase.getInstance().getReference();
-        DatabaseReference categoryTable = myFirebaseRef.child(Constats.TABLE_CATEGORY);
-        categoryTable.child("1").setValue(new Category(1,"Love Messages"));
-        categoryTable.child("2").setValue(new Category(2,"Valentine's Day SMS"));
-        categoryTable.child("3").setValue(new Category(3,"Romantic Messages"));
-        categoryTable.child("4").setValue(new Category(4,"Love Quotes"));
-        categoryTable.child("5").setValue(new Category(5,"I Love You Quotes"));
-        categoryTable.child("6").setValue(new Category(6,"Cute Love SMS"));
-        categoryTable.child("7").setValue(new Category(7,"Love Status For FB"));
-        categoryTable.child("8").setValue(new Category(8,"Love SMS in Hindi"));
-
-        DatabaseReference messageTable = myFirebaseRef.child(Constats.TABLE_MESSAGE);
-        try {
-            JSONObject data = new JSONObject(FileUtils.loadJSONFromAsset(Splash.this, "messages.json"));
-            JSONArray rows = data.getJSONArray("rows");
-            for (int i = 0; i < rows.length(); i++) {
-                JSONArray msg = rows.getJSONArray(i);
-                messageTable.child(""+i).setValue(new Messages(i, msg.getString(0), Integer.parseInt(msg.getString(1))));
-            }
-        } catch (JSONException e) {
-            e.printStackTrace();
-        }
-    }
 }
