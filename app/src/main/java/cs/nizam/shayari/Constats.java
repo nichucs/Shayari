@@ -5,4 +5,5 @@ package cs.nizam.shayari;
  */
 public interface Constats {
     String TABLE_MESSAGE = "messages";
+    String TABLE_CATEGORY = "categories";
 }
