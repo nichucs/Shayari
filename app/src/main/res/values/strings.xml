@@ -12,4 +12,6 @@
     <string name="refresh">Refresh Online</string>
     <string name="start">Get Sarted</string>
     <string name="upload">Upload</string>
+    <string name="backdrop_subtitle">Top quotes</string>
+    <string name="backdrop_title">Shayari</string>
 </resources>

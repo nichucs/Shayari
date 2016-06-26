@@ -32,6 +32,18 @@ public class MyDatabase {
     }
 
     public void refreshData(final OnSuccessListener onSuccessListener, final OnErrorListener onErrorListener) {
+        singleQuery(databaseReference, onSuccessListener, onErrorListener);
+    }
+
+    public void getCategories(OnSuccessListener onSuccessListener, OnErrorListener onErrorListener){
+        singleQuery(databaseReference.child(Constats.TABLE_CATEGORY), onSuccessListener, onErrorListener);
+    }
+
+    public void getMessages(OnSuccessListener onSuccessListener, OnErrorListener onErrorListener){
+        singleQuery(databaseReference.child(Constats.TABLE_MESSAGE), onSuccessListener, onErrorListener);
+    }
+
+    private void singleQuery(DatabaseReference databaseReference, final OnSuccessListener onSuccessListener, final OnErrorListener onErrorListener) {
         databaseReference.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
@@ -44,4 +56,5 @@ public class MyDatabase {
             }
         });
     }
+
 }
