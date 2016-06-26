@@ -96,8 +96,6 @@ public class Splash extends AppCompatActivity {
         categoryTable.child("8").setValue(new Category(8,"Love SMS in Hindi"));
 
         DatabaseReference messageTable = myFirebaseRef.child(Constats.TABLE_MESSAGE);
-        messageTable.child("1").setValue(new Messages(1, "Sample message is 'here", 1));
-        messageTable.child("2").setValue(new Messages(2,"Second message is 'here",1));
         try {
             JSONObject data = new JSONObject(FileUtils.loadJSONFromAsset(Splash.this, "messages.json"));
             JSONArray rows = data.getJSONArray("rows");
