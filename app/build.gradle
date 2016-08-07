@@ -39,7 +39,7 @@ android {
     }
     defaultConfig {
         applicationId "cs.nizam.shayari"
-        minSdkVersion 10
+        minSdkVersion 11
         targetSdkVersion 23
         versionCode getVersionCode()
         versionName getVersionName()
@@ -81,5 +81,9 @@ dependencies {
     compile 'com.google.firebase:firebase-core:9.0.2'
     compile 'com.google.firebase:firebase-database:9.0.2'
     compile 'com.jakewharton:butterknife:7.0.1'
+    // Fillable splash
+    compile 'com.github.jorgecastilloprz:fillableloaders:1.03@aar'
+    // Glide
+    compile 'com.github.bumptech.glide:glide:3.7.0'
 }
 apply plugin: 'com.google.gms.google-services'

@@ -1,5 +1,6 @@
 package cs.nizam.shayari;
 
+import com.bumptech.glide.Glide;
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
 import com.google.android.gms.analytics.HitBuilders;
@@ -21,6 +22,7 @@ import android.util.TypedValue;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 import java.util.ArrayList;
@@ -65,6 +67,11 @@ public class MainActivity extends AppCompatActivity {
 
         prepareCategories();
 
+        try {
+            Glide.with(this).load("http://res.cloudinary.com/dhyjxhajc/image/upload/v1470590327/the-tree-of-love.jpg").into((ImageView) findViewById(R.id.backdrop));
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
         //GA tracking
         AnalyticsTrackers.getInstance().get(AnalyticsTrackers.Target.APP)
                 .send(new HitBuilders.ScreenViewBuilder().build());

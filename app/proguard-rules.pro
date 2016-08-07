@@ -50,6 +50,14 @@
  -keep class android.support.v7.** { *; }
  -keep interface android.support.v7.** { *; }
 
+ #Glide
+ -keep public class * implements com.bumptech.glide.module.GlideModule
+ -keep public enum com.bumptech.glide.load.resource.bitmap.ImageHeaderParser$** {
+   **[] $VALUES;
+   public *;
+ }
+ -keepresourcexmlelements manifest/application/meta-data@value=GlideModule
+
 # If your project uses WebView with JS, uncomment the following
 # and specify the fully qualified class name to the JavaScript interface
 # class:

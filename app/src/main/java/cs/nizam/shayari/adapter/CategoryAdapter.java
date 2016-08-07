@@ -8,6 +8,8 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
+
 import java.util.List;
 
 import cs.nizam.shayari.R;
@@ -37,7 +39,8 @@ public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.MyView
     public void onBindViewHolder(MyViewHolder holder, int position) {
         Category category = categories.get(position);
         holder.title.setText(category.getCategory());
-
+        // loading album cover using Glide library
+        Glide.with(context).load("https://unsplash.it/160?random").skipMemoryCache(true).into(holder.thumbnail);
     }
 
     @Override
