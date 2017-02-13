@@ -12,6 +12,10 @@ public class Messages implements Serializable{
     String msg;
     int cat;
 
+    public Messages() {
+        // required
+    }
+
     public Messages(int _id, String msg, int cat) {
         this._id = _id;
         this.msg = msg;

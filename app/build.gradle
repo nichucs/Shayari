@@ -39,7 +39,7 @@ android {
     }
     defaultConfig {
         applicationId "cs.nizam.shayari"
-        minSdkVersion 11
+        minSdkVersion 13
         targetSdkVersion 23
         versionCode getVersionCode()
         versionName getVersionName()
