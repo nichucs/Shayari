@@ -10,7 +10,7 @@ android {
         }
     }
     compileSdkVersion 23
-    buildToolsVersion "23.0.3"
+    buildToolsVersion '25.0.0'
     def getVersionCode = {
         try {
             def stdout = new ByteArrayOutputStream()
